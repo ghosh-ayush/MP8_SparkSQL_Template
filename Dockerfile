@@ -16,7 +16,7 @@ RUN apt-get install -y python3 python3-pip
 
 # Download and install spark
 RUN	cd /usr/local/ &&\
-    wget "http://apache.cs.utah.edu/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz" &&\
+    wget "https://archive.apache.org/dist/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz" &&\
 	tar -xvzf spark-2.4.5-bin-hadoop2.7.tgz && \
 	ln -s ./spark-2.4.5-bin-hadoop2.7 spark &&  \
 	rm -rf /usr/local/spark-2.4.5-bin-hadoop2.7.tgz && \
