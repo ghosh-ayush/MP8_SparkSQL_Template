@@ -6,7 +6,7 @@ This is the Java and Python template for MP8 SparkSQL.
 
 Last updated in April 2021, by Ruiyang Chen (rc5@illinois.edu).
 
-## Sample Output of 'MP3\_SQLite.py'
+## Sample Output of 'MP8\_SQLite.py'
 ~~~sh
 Opened database successfully
 Table created successfully
