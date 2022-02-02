@@ -15,11 +15,11 @@
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>cs498.mp3_sparksql</groupId>
-  <artifactId>mp3_sparksql</artifactId>
+  <groupId>cs498.mp8_sparksql</groupId>
+  <artifactId>mp8_sparksql</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>"MP3 SparkSQL"</name>
+  <name>"MP8 SparkSQL"</name>
   <build>
     <plugins>
         <plugin>
