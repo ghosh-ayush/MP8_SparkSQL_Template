@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 //import java.util.function.Function;
 
-public final class MP3_PartC {
+public final class MP8_PartC {
 
   public static void main(String[] args) throws Exception {
     SparkSession spark = SparkSession
       .builder()
-      .appName("MP3")
+      .appName("MP8")
       .getOrCreate();
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
     SQLContext sqlContext = new SQLContext(sc);

@@ -4,7 +4,9 @@ This is the Java and Python template for MP8 SparkSQL.
 
 ## Log 
 
-Last updated in April 2021, by Ruiyang Chen (rc5@illinois.edu).
+Last updated in Feb 2022, by Yifan Chen (yifanc3@illinois.edu).
+
+Updated in April 2021, by Ruiyang Chen (rc5@illinois.edu).
 
 ## Sample Output of 'MP8\_SQLite.py'
 ~~~sh
