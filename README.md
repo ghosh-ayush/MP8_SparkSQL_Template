@@ -2,6 +2,10 @@
 
 This is the Java and Python template for MP8 SparkSQL.
 
+# Note for M1 Mac 
+
+If you're using M1 Mac, you will need to modify the Dockerfile before building it by changing `/usr/lib/jvm/java-1.8.0-openjdk-amd64` to `/usr/lib/jvm/java-1.8.0-openjdk-arm64`
+
 ## Log 
 
 Last updated in Feb 2022, by Yifan Chen (yifanc3@illinois.edu).
