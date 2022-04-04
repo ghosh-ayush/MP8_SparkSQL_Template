@@ -22,6 +22,8 @@ RUN	cd /usr/local/ &&\
 	rm -rf /usr/local/spark-2.4.5-bin-hadoop2.7.tgz && \
 	rm -rf /usr/local/spark/external && \
 	chmod a+rwx -R /usr/local/spark/
+RUN pip3 install --upgrade pip
+RUN pip3 install Cython
 RUN pip3 install numpy
 
 RUN echo "alias spark-submit='/usr/local/spark/bin/spark-submit'" >> ~/.bashrc
