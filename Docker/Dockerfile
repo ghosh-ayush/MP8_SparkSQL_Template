@@ -1,5 +1,5 @@
-# Fetch ubuntu 18.04 LTS docker image
-FROM ubuntu:18.04
+# Fetch ubuntu 22.04 LTS docker image
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV PYSPARK_PYTHON=python3
@@ -34,6 +34,17 @@ RUN cp /usr/local/spark/conf/log4j.properties.template /usr/local/spark/conf/log
 # Set relevant environment variables to simplify usage of spark
 ENV SPARK_HOME /usr/local/spark
 ENV PATH="/usr/local/spark/bin:${PATH}"
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 RUN chmod a+rwx -R /usr/local/spark/
-RUN update-java-alternatives --set /usr/lib/jvm/java-1.8.0-openjdk-amd64
+
+# Test the arch and set JAVA_HOME accordingly:
+# ARM64: /usr/lib/jvm/java-8-openjdk-arm64
+# X84_64: /usr/lib/jvm/java-1.8.0-openjdk-amd64
+
+RUN if [ "$(uname -m)" = "x86_64" ]; then export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64; else export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64; fi \
+    && echo "export JAVA_HOME=$JAVA_HOME" >> /root/.bashrc
+
+RUN update-java-alternatives --set java-1.8.0-openjdk-arm64
+
+# [Optional] Set working path to /cs498, and run the following command to start the container with code:
+# WORKDIR /cs498
+# docker run -it --rm --mount type=bind,source=$PATH_TO_CODE,target=/cs498/ sample_image.v1 /bin/bash
