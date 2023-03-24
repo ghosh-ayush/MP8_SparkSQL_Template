@@ -15,13 +15,10 @@ RUN apt-get install -y python3 python3-pip
 ################################################################################
 
 # Download and install spark
-RUN	cd /usr/local/ &&\
-    wget "https://archive.apache.org/dist/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz" &&\
-	tar -xvzf spark-2.4.5-bin-hadoop2.7.tgz && \
-	ln -s ./spark-2.4.5-bin-hadoop2.7 spark &&  \
-	rm -rf /usr/local/spark-2.4.5-bin-hadoop2.7.tgz && \
-	rm -rf /usr/local/spark/external && \
-	chmod a+rwx -R /usr/local/spark/
+RUN curl -s "https://archive.apache.org/dist/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz" | tar -xz  -C /usr/local/ \
+    && ln -s /usr/local/spark-3.3.2-bin-hadoop3 /usr/local/spark \
+    && chmod a+rwx -R /usr/local/spark/
+
 RUN pip3 install --upgrade pip
 RUN pip3 install Cython
 RUN pip3 install numpy
