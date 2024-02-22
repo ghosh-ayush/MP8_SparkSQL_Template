@@ -48,8 +48,11 @@ public final class MP8_PartE {
      * lines this JOIN could produce. Answer this question via DataFrame API and Spark SQL API
      */
 
-    Dataset<Row> df2 = df.select("word", "year").distinct().limit(100);
-    df2.createOrReplaceTempView("gbooks2");
+    // Uncomment and use the below lines in your implementation as specified above
+
+    // Dataset<Row> df2 = df.select("word", "year").distinct().limit(100);
+    // df2.createOrReplaceTempView("gbooks2");
+    
     // Spark SQL API
 
 
