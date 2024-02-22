@@ -33,3 +33,5 @@ spark = SparkSession.builder.getOrCreate()
 # |    agast_ADV|       4|
 # +-------------+--------+
 # only showing top 3 rows
+
+# The above output may look slightly different for you due to ties with other words

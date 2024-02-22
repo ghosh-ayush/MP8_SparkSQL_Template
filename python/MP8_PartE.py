@@ -29,5 +29,5 @@ df2.createOrReplaceTempView('gbooks2')
 
 # Spark SQL API
 
-# output: 162
+# output: 166
 
