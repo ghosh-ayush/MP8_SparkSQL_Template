@@ -31,6 +31,7 @@ public final class MP8_PartD {
       .appName("MP8")
       .getOrCreate();
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
+    SQLContext sqlContext = new SQLContext(sc);
     /*
      * 1. Setup: write a function to load it in an RDD & DataFrame
      */
@@ -43,7 +44,7 @@ public final class MP8_PartD {
 
 
     /*
-     * 4. MapReduce (16 points): List the top three words that have appeared in the
+     * 4. MapReduce : List the top three words that have appeared in the
      * greatest number of years.
      */
 
