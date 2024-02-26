@@ -9,6 +9,7 @@ import org.apache.spark.sql.SQLContext;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.RowFactory;
 import org.apache.spark.sql.Dataset;
+import static org.apache.spark.sql.functions.*;
 import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
@@ -19,6 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
+import java.util.Map;
 //import java.util.function.Function;
 
 public final class MP8_PartD {
