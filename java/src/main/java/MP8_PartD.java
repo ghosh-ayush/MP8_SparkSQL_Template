@@ -55,3 +55,16 @@ public final class MP8_PartD {
     sc.stop();
   }
 }
+
+/* Sample Output (may look slightly different for you due to ties with other words)
+
++-------------+--------+
+|         word|count(1)|
++-------------+--------+
+|    ATTRIBUTE|      11|
+|approximation|       4|
+|    agast_ADV|       4|
++-------------+--------+
+only showing top 3 rows
+
+*/

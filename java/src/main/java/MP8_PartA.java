@@ -46,3 +46,13 @@ public final class MP8_PartA {
     sc.stop();
   }
 }
+
+/* Sample Output
+
++--------+
+|count(1)|
++--------+
+|   50013|
++--------+ 
+
+*/

@@ -62,3 +62,9 @@ public final class MP8_PartE {
     sc.stop();
   }
 }
+
+/* Sample Output
+
+166
+
+*/
