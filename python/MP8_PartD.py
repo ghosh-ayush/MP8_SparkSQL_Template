@@ -20,7 +20,7 @@ spark = SparkSession.builder.getOrCreate()
 
 
 ####
-# 4. MapReduce (16 points): List the top three words that have appeared in the greatest number of years.
+# 4. MapReduce : List the top three words that have appeared in the greatest number of years.
 ####
 
 # Spark SQL

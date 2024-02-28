@@ -19,7 +19,7 @@ spark = SparkSession.builder.getOrCreate()
 
 
 ####
-# 5. Joining (16 points): The following program construct a new dataframe out of 'df' with a much smaller size.
+# 5. Joining : The following program construct a new dataframe out of 'df' with a much smaller size.
 ####
 
 df2 = df.select("word", "year").distinct().limit(100)
