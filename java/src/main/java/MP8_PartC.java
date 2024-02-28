@@ -31,18 +31,17 @@ public final class MP8_PartC {
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
     SQLContext sqlContext = new SQLContext(sc);
     /*
-     * 1. Setup (10 points): Download the gbook file and write a function 
-     * to load it in an RDD & DataFrame
+     * 1. Setup: write a function to load it in an RDD & DataFrame
      */
     
     // RDD API
-    // Columns: 0: place (string), 1: count1 (int), 2: count2 (int), 3: count3 (int)
+    // Columns: 0: word (string), 1: year (int), 2: frequency (int), 3: books (int)
 
 
     // Spark SQL - DataSet API
 
     /*
-     * 3. Filtering (10 points) Count the number of appearances of word 'ATTRIBUTE'
+     * 3. Filtering : Count the number of appearances of word 'ATTRIBUTE'
      */
     // Dataset/Spark SQL API
 
@@ -51,3 +50,13 @@ public final class MP8_PartC {
     sc.stop();
   }
 }
+
+/* Sample Output
+
++--------+
+|count(1)|
++--------+
+|      11|
++--------+
+
+*/

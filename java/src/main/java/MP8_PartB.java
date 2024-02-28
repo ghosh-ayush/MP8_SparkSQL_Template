@@ -31,12 +31,11 @@ public final class MP8_PartB {
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
     SQLContext sqlContext = new SQLContext(sc);
     /*
-     * 1. Setup (10 points): Download the gbook file and write a function 
-     * to load it in an RDD & DataFrame
+     * 1. Setup: write a function to load it in an RDD & DataFrame
      */
     
     // RDD API
-    // Columns: 0: place (string), 1: count1 (int), 2: count2 (int), 3: count3 (int)
+    // Columns: 0: word (string), 1: year (int), 2: frequency (int), 3: books (int)
 
 
     // Spark SQL - DataSet API
@@ -44,7 +43,7 @@ public final class MP8_PartB {
 
 
     /*
-     * 2. Counting (10 points): How many lines does the file contains? Answer 
+     * 2. Counting : How many lines does the file contains? Answer 
      * this question via both RDD api & #Spark SQL
      */
 
@@ -54,3 +53,13 @@ public final class MP8_PartB {
     sc.stop();
   }
 }
+
+/* Sample Output
+
++--------+
+|count(1)|
++--------+
+|   50013|
++--------+
+
+*/

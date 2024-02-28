@@ -1,35 +1,37 @@
-from pyspark import SparkContext, SQLContext
+from pyspark import SparkContext
 from pyspark.sql.types import StructType
 from pyspark.sql.types import StructField
 from pyspark.sql.types import StringType, IntegerType
+from pyspark.sql import SparkSession
 
 sc = SparkContext()
-sqlContext = SQLContext(sc)
+spark = SparkSession.builder.getOrCreate()
 
 ####
-# 1. Setup (10 points): Download the gbook file and write a function to load it in an RDD & DataFrame
+# 1. Setup : Write a function to load it in an RDD & DataFrame
 ####
 
 # RDD API
 # Columns:
-# 0: place (string), 1: count1 (int), 2: count2 (int), 3: count3 (int)
+# 0: word (string), 1: year (int), 2: frequency (int), 3: books (int)
 
 
 # Spark SQL - DataFrame API
 
 
 ####
-# 4. MapReduce (10 points): List the three most frequent 'word' with their count of appearances
+# 4. MapReduce : List the top three words that have appeared in the greatest number of years.
 ####
 
 # Spark SQL
 
-# There are 18 items with count = 425, so could be different 
-# +---------+--------+
-# |     word|count(1)|
-# +---------+--------+
-# |  all_DET|     425|
-# | are_VERB|     425|
-# |about_ADP|     425|
-# +---------+--------+
+# +-------------+--------+
+# |         word|count(1)|
+# +-------------+--------+
+# |    ATTRIBUTE|      11|
+# |approximation|       4|
+# |    agast_ADV|       4|
+# +-------------+--------+
+# only showing top 3 rows
 
+# The above output may look slightly different for you due to ties with other words

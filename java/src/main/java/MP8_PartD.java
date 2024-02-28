@@ -9,6 +9,7 @@ import org.apache.spark.sql.SQLContext;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.RowFactory;
 import org.apache.spark.sql.Dataset;
+import static org.apache.spark.sql.functions.*;
 import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
@@ -19,6 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
+import java.util.Map;
 //import java.util.function.Function;
 
 public final class MP8_PartD {
@@ -31,20 +33,19 @@ public final class MP8_PartD {
     JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
     SQLContext sqlContext = new SQLContext(sc);
     /*
-     * 1. Setup (10 points): Download the gbook file and write a function 
-     * to load it in an RDD & DataFrame
+     * 1. Setup: write a function to load it in an RDD & DataFrame
      */
     
     // RDD API
-    // Columns: 0: place (string), 1: count1 (int), 2: count2 (int), 3: count3 (int)
+    // Columns: 0: word (string), 1: year (int), 2: frequency (int), 3: books (int)
 
 
     // Spark SQL - DataSet API
 
 
     /*
-     * 4. MapReduce (10 points): List the three most frequent 'word' with their count 
-     * of appearances
+     * 4. MapReduce : List the top three words that have appeared in the
+     * greatest number of years.
      */
 
     // Dataset/Spark SQL API
@@ -54,3 +55,16 @@ public final class MP8_PartD {
     sc.stop();
   }
 }
+
+/* Sample Output (may look slightly different for you due to ties with other words)
+
++-------------+--------+
+|         word|count(1)|
++-------------+--------+
+|    ATTRIBUTE|      11|
+|approximation|       4|
+|    agast_ADV|       4|
++-------------+--------+
+only showing top 3 rows
+
+*/
