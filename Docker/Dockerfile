@@ -16,10 +16,10 @@ RUN apt-get install -y python3 python3-pip
 
 
 RUN cd /usr/local/ &&\
-    wget "https://dlcdn.apache.org/spark/spark-3.5.0/spark-3.5.0-bin-hadoop3.tgz" &&\
-	tar -xvzf spark-3.5.0-bin-hadoop3.tgz && \
-	ln -s ./spark-3.5.0-bin-hadoop3 spark &&  \
-	rm -rf /usr/local/spark-3.5.0-bin-hadoop3.tgz && \
+    wget "https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz" &&\
+	tar -xvzf spark-3.5.1-bin-hadoop3.tgz && \
+	ln -s ./spark-3.5.1-bin-hadoop3 spark &&  \
+	rm -rf /usr/local/spark-3.5.1-bin-hadoop3.tgz && \
 	rm -rf /usr/local/spark/external && \
 	chmod a+rwx -R /usr/local/spark/
 
