@@ -3,6 +3,7 @@ from pyspark.sql.types import StructType
 from pyspark.sql.types import StructField
 from pyspark.sql.types import StringType, IntegerType
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import desc
 
 sc = SparkContext()
 spark = SparkSession.builder.getOrCreate()
@@ -18,10 +19,11 @@ spark = SparkSession.builder.getOrCreate()
 
 # Spark SQL - DataFrame API
 
-
 ####
-# 4. MapReduce : List the top three words that have appeared in the greatest number of years.
-####
+#  4. MapReduce : List the top three words that have appeared in the
+#  greatest number of years. 
+#  Sorting order of the final answer should should be descending by word count,
+#  then descending by word.
 
 # Spark SQL
 
@@ -34,4 +36,3 @@ spark = SparkSession.builder.getOrCreate()
 # +-------------+--------+
 # only showing top 3 rows
 
-# The above output may look slightly different for you due to ties with other words

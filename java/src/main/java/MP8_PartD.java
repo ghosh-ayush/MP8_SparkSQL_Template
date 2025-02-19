@@ -45,7 +45,8 @@ public final class MP8_PartD {
 
     /*
      * 4. MapReduce : List the top three words that have appeared in the
-     * greatest number of years.
+     * greatest number of years. Sorting order of the final answer should should be descending by word count,
+     * then descending by word.
      */
 
     // Dataset/Spark SQL API
@@ -56,7 +57,7 @@ public final class MP8_PartD {
   }
 }
 
-/* Sample Output (may look slightly different for you due to ties with other words)
+/* Sample Output 
 
 +-------------+--------+
 |         word|count(1)|
