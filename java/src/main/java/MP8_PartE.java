@@ -51,7 +51,7 @@ public final class MP8_PartE {
 
     // Uncomment and use the below lines in your implementation as specified above
 
-    // Dataset<Row> df2 = df.select("word", "year").distinct().limit(100);
+    // Dataset<Row> df2 = df.select("word", "year").distinct().orderBy("year", "word").limit(100);
     // df2.createOrReplaceTempView("gbooks2");
     
     // Spark SQL API
@@ -65,6 +65,6 @@ public final class MP8_PartE {
 
 /* Sample Output
 
-166
+310
 
 */
