@@ -24,7 +24,7 @@ RUN apt-get install -y python3 python3-pip
 ################################################################################
 
 RUN cd /usr/local/ && \
-    wget "https://dlcdn.apache.org/spark/spark-3.5.4/spark-3.5.4-bin-hadoop3.tgz" && \
+    wget "https://archive.apache.org/dist/spark/spark-3.5.4/spark-3.5.4-bin-hadoop3.tgz" && \
     tar -xvzf spark-3.5.4-bin-hadoop3.tgz && \
     ln -s ./spark-3.5.4-bin-hadoop3 spark &&  \
     rm -rf /usr/local/spark-3.5.4-bin-hadoop3.tgz && \
