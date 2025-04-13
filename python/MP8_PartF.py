@@ -6,6 +6,7 @@ from pyspark.sql.types import StringType, IntegerType
 from pyspark.sql import SparkSession
 from pyspark.sql.window import Window
 from pyspark.sql.functions import *
+from pyspark.sql import functions as F
 
 sc = SparkContext()
 spark = SparkSession.builder.getOrCreate()
@@ -49,31 +50,31 @@ df = load_data("gbooks")
 
 
 # df_word_increase.show()
-# Filter data to include only records from year 1500 up to and including 2000.
-df_filtered = df.filter((col("year") >= 1500) & (col("year") <= 2000))
+# Filter records to include only years in [1500, 2000]
+df_filtered = df.filter((F.col("year") >= 1500) & (F.col("year") <= 2000))
 
-# Define a window specification partitioned by "word" and ordered by "year".
-windowSpec = Window.partitionBy("word").orderBy("year")
-
-# Compute the previous frequency for each word using lag.
-df_with_lag = df_filtered.withColumn("prev_frequency", lag("frequency").over(windowSpec))
-
-# Calculate the frequency difference between the current row and the previous row.
-# For the first occurrence, lag returns null so we substitute 0.
-df_with_diff = df_with_lag.withColumn("freq_diff",
-    when(col("prev_frequency").isNull(), 0)
-    .otherwise(col("frequency") - col("prev_frequency"))
+# (a) Determine each word’s first occurrence (minimum year) and obtain its frequency.
+first_occurrence = df_filtered.groupBy("word").agg(F.min("year").alias("first_year")).alias("first")
+# Alias the filtered DataFrame to avoid ambiguity.
+df_filtered_alias = df_filtered.alias("d")
+first_freq = first_occurrence.join(
+    df_filtered_alias,
+    (F.col("first.word") == F.col("d.word")) & (F.col("first.first_year") == F.col("d.year"))
+).select(
+    F.col("d.word").alias("word"),
+    F.col("d.frequency").alias("first_freq")
 )
 
-# Ensure that any negative difference is treated as 0 (only count increases).
-df_with_diff = df_with_diff.withColumn("freq_diff",
-    when(col("freq_diff") < 0, 0).otherwise(col("freq_diff"))
-)
+# (b) Compute the total frequency for each word (sum of frequency over all rows in [1500,2000]).
+total_freq = df_filtered.groupBy("word").agg(F.sum("frequency").alias("total_freq"))
 
-# For each word, sum up the computed differences to get the total increase.
-df_word_increase = df_with_diff.groupBy("word").agg(
-    _sum("freq_diff").alias("total_increase")
-)
+# (c) Calculate total_increase = total_freq - first_freq.
+df_increase = first_freq.join(total_freq, on="word")\
+    .withColumn("total_increase", F.col("total_freq") - F.col("first_freq"))
 
-# Order the results by total_increase in descending order and display the top 20 rows.
-df_word_increase.orderBy(col("total_increase").desc()).show(20)
+# (d) Select only "word" and "total_increase" and order by total_increase descending.
+df_result = df_increase.select("word", "total_increase").orderBy(F.desc("total_increase"))
+
+# 3. OUTPUT FORMAT: Produce output with correct alignment.
+# We simply call show(5, False) to produce output where numbers remain numeric.
+df_result.show(20)

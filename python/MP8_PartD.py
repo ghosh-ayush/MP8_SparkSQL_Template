@@ -68,7 +68,5 @@ result_df = spark.sql("""
     FROM gbooks 
     GROUP BY word 
     ORDER BY `count(1)` DESC, word DESC 
-    LIMIT 3
 """)
-result_df.show()
-print(" only showing top 3 rows ")
+result_df.show(3)
